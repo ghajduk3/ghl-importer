@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  app:
+    image: ghl_jamie:latest
+    build:
+      context: .
+    restart: always
+    env_file:
+      - ./.env.app
+    ports:
+      - 8004:8000
+
+  db:
+      image: postgres:13.0-alpine
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      env_file:
+        - ./.env.db
+      ports:
+        - 54324:5432
+
+  cache-redis:
+      image: redis:7.2-rc1-alpine
+      volumes:
+        - redis_data:/var/lib/redis/data/
+      ports:
+        - 6381:6380
+
+
+volumes:
+  postgres_data:
+  redis_data:
