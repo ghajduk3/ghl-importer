@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:54324/ghl_dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="ghlproduction" uuid="6b96210b-ce54-4034-a2da-96231a4c22d3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://128.140.60.79:54324/ghl_dev</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
