@@ -25,7 +25,7 @@ services:
       volumes:
         - redis_data:/var/lib/redis/data/
       ports:
-        - 6381:6380
+        - 6381:6379
 
 
 volumes:
