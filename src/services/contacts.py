@@ -213,6 +213,7 @@ def _prepare_contact_update_fields(
     }
 
     fields_to_update["custom_fields"] = custom_fields
+
     return fields_to_update
 
 

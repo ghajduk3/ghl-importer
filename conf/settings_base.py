@@ -164,5 +164,17 @@ CACHES = {
     }
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '<TAG>'
+EMAIL_HOST_PASSWORD = '<TAG>'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 GHL_BASE_API_URL = "https://rest.gohighlevel.com/"
 GHL_API_AUTHENTICATION_TOKEN = "<TAG>"
+
+
+STALE_LOAN_DATA_POOLS_TIME_DELTA = 1
+SKIP_DUPLICATE_GHL_CONTACT_CREATION = True
+LOGGING_EMAIL_RECIPIENT_LIST = ['hajdukbet@gmail.com']
