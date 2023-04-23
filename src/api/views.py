@@ -5,7 +5,7 @@ import simplejson
 from django import http
 from django import views
 
-from src import services
+from src.services import loan_data_pool as loan_data_pool_service
 
 logger = logging.getLogger(__name__)
 
@@ -31,11 +31,12 @@ class LoanDataPool(views.View):
             )
 
         """
-            1. Validate data
+            TODO::
+                1. Validate data
         """
 
         try:
-            services.save_loan_data_to_pool(raw_payload=payload)
+            loan_data_pool_service.save_loan_data_to_pool(raw_payload=payload)
         except Exception:
             return http.HttpResponse(
                 headers={"Content-Type": "application/json"},

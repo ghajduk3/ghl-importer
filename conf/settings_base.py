@@ -163,3 +163,6 @@ CACHES = {
         "OPTIONS": {"CLIENT_CLASS": "django_redis.client.DefaultClient"},
     }
 }
+
+GHL_BASE_API_URL = "https://rest.gohighlevel.com/"
+GHL_API_AUTHENTICATION_TOKEN = "<TAG>"
