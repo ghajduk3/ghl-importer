@@ -112,7 +112,8 @@ def process_data_pool(
             break
 
         loan_id = _get_contact_load_id(data=contact.get("customField", []))
-        if not skip_duplicate_contact_creation and pool_content["LoanId"] != loan_id:
+        if pool_content["LoanId"] != loan_id:
+            # if not skip_duplicate_contact_creation:
             contact_services.create_contact(loan_pool=data_pool)
             number_of_contacts_created += 1
             continue
