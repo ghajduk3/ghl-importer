@@ -10,7 +10,7 @@ services:
       - ./.env.app
     ports:
       - 8004:8000
-      - 587:587
+      - 588:587
 
   db:
       image: postgres:13.0-alpine

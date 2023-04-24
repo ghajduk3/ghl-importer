@@ -106,19 +106,18 @@ def process_data_pool(
         )
     )
 
-    number_of_contacts_created = 0
+    update_candidates = []
     for contact in contacts:
-        if number_of_contacts_created >= 1:
-            break
-
         loan_id = _get_contact_load_id(data=contact.get("customField", []))
-        if pool_content["LoanId"] != loan_id:
-            # if not skip_duplicate_contact_creation:
-            contact_services.create_contact(loan_pool=data_pool)
-            number_of_contacts_created += 1
-            continue
+        if pool_content["LoanId"] == loan_id:
+            update_candidates.append(contact)
 
-        contact_services.update_contact(contact=contact, loan_pool=data_pool)
+    if not update_candidates:
+        contact_services.create_contact(loan_pool=data_pool)
+    else:
+        contact_services.update_contact(
+            contact=update_candidates[0], loan_pool=data_pool
+        )
 
     logger.info(
         "{} Finished processing data pool (id={}, skip_duplicate_contact_creation={}).".format(
